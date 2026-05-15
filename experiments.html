@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ten experiments – Solidroad take-home</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <a href="index.html" class="topbar-brand">Adam Toland · Solidroad</a>
+  <nav class="nav-pills">
+    <a href="index.html">Home</a>
+    <a href="thesis.html">The thesis</a>
+    <a href="system.html">The system</a>
+    <a href="signals.html">Signals</a>
+    <a href="accounts.html">Accounts</a>
+    <a href="experiments.html" class="active">Experiments</a>
+    <a href="plan.html">60 days</a>
+    <a href="about.html">Why me</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Page 5 · Ten experiments</div>
+    <h1>Hypothesis-driven, <span class="accent">testable, falsifiable.</span></h1>
+    <p class="hero-sub">Andrew already wrote publicly that Solidroad's operating model treats each stream as an experiment. The GTM version is the same. Ten experiments I'd run in the first 90 days, each with a hypothesis, a method, a success metric, and a kill criterion.</p>
+  </div>
+</section>
+
+<section class="section white">
+  <div class="section-inner">
+    <span class="section-eyebrow">The discipline</span>
+    <h2>Each experiment is structured the same way.</h2>
+    <p class="section-sub">Borrowed from Clay's "factory R&D" framing and Andrew's planning ritual. Hypothesis, method, success metric, kill criterion, time-to-decision.</p>
+
+    <div class="highlight green">
+      <strong>Why the structure matters.</strong> The wrong way to run experiments is to launch ten, declare three of them "promising," and never kill any of them. The right way is to write the success criterion before launching, and kill on the date you said you'd decide. That's the discipline. I'd hold myself to it visibly, and I'd publish results to Paddy weekly so the team can learn from the failures as well as the wins.
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner">
+    <span class="section-eyebrow">The ten</span>
+    <h2>Ranked by <span class="accent">expected leverage.</span></h2>
+
+    <details>
+      <summary>Experiment 1 · LinkedIn engagement → pipeline (the $5K play, industrialised)</summary>
+      <div class="detail-body">
+        <p><strong>Hypothesis.</strong> Mark's already paying $5K/month bonuses to amplify Solidroad employee LinkedIn reach. The reach is working; the conversion is manual. If we enrich every engager, score them against ICP, and route the top 5/day to a 24-hour-response motion, we can convert 3–5% of qualified engagers to booked meetings.</p>
+        <p><strong>Method.</strong> Function 6 (LinkedIn Engagement Harvester) runs daily across Mark, Patrick, Paddy, Andrew, Robbie Carroll, and other consistent posters. Top-scored engagers route to a Slack channel with a one-click outreach Function. Operator commits to 24-hour response for any score &gt;75.</p>
+        <p><strong>Success metric.</strong> 30 booked meetings in 90 days from LinkedIn-engager outreach. 5+ of those convert to Evaluating stage.</p>
+        <p><strong>Kill criterion.</strong> Under 10 booked meetings in 60 days = kill.</p>
+        <p><strong>Why it's #1.</strong> Mark told the market this is the top growth channel. He's already invested $15K+ in amplifying it. The conversion mechanism is the missing piece. Shipping this in month one shows we listen to public signals as well as private ones.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Experiment 2 · AI-agent-without-QA detector (the Vanta play)</summary>
+      <div class="detail-body">
+        <p><strong>Hypothesis.</strong> Companies announcing AI chatbots/voicebots in earnings calls or press releases, without any public quality story, will accept a Solidroad conversation within 30 days of the announcement at 4–5x the baseline cold reply rate.</p>
+        <p><strong>Method.</strong> Custom Claygent signal: monitor SEC filings + tech press for AI-agent deployment announcements in target verticals. Cross-reference with the absence of "AI governance" / "AI quality" / "AI evaluation" language. Auto-enrich + send Variant C (high-signal) outreach within 7 days of detection.</p>
+        <p><strong>Success metric.</strong> 4x baseline cold-reply rate. 15 booked meetings in 90 days from this signal alone.</p>
+        <p><strong>Kill criterion.</strong> Sub-2x baseline reply rate after 50 attempts = kill, or restructure the messaging.</p>
+        <p><strong>Why it works.</strong> Structurally identical to how Vanta wins SOC2 deals before competitors have heard the company exists.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Experiment 3 · CX leader 60-day window play</summary>
+      <div class="detail-body">
+        <p><strong>Hypothesis.</strong> CX leaders (Head of Support, VP CX, Director of Quality) within 60 days of joining a new ICP-fit company convert at 5–6x the baseline reply rate. They have budget, mandate, and incentive to ship a visible quality win in their first quarter.</p>
+        <p><strong>Method.</strong> Default Clay signal: job changes filtered for CX leadership titles at target accounts. Auto-enrich previous role + recent public statements. Custom outreach referencing their previous role context.</p>
+        <p><strong>Success metric.</strong> 25% reply rate (vs ~5% cold-baseline). 20+ qualified meetings in 90 days.</p>
+        <p><strong>Kill criterion.</strong> Sub-15% reply rate after 30 attempts = adjust the outreach template or the persona filter.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Experiment 4 · Post-CX-failure 7-day response</summary>
+      <div class="detail-body">
+        <p><strong>Hypothesis.</strong> Within 7 days of a viral CX failure or regulatory complaint, the affected company's CX leader is under direct CEO pressure. Solidroad's "100% review" pitch lands at this exact moment with 3–4x baseline conversion. Beyond 14 days, the moment closes.</p>
+        <p><strong>Method.</strong> RSS + Claygent monitoring of Reddit / X / news for high-engagement CX-failure mentions. Auto-route as URGENT to operator Slack. Outreach within 48 hours, with care never to reference the specific failure directly – reference the category.</p>
+        <p><strong>Success metric.</strong> 35% reply rate for outreach sent within 7 days. 10+ meetings in 90 days.</p>
+        <p><strong>Kill criterion.</strong> Sub-15% reply rate or any negative brand response from prospects (signals we got the tone wrong).</p>
+        <p><strong>Why this experiment requires the most care.</strong> Easy to get wrong tonally. Worth investing in template testing on internal team before sending to real prospects.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Experiment 5 · BPO "use this in your client pitch" angle</summary>
+      <div class="detail-body">
+        <p><strong>Hypothesis.</strong> BPOs win or lose clients on quality story. Positioning Solidroad as a "use this in your client pitch" tool (not a "buy this for ops" tool) flips the buyer's mental model from cost-line to revenue-line. Higher conversion at higher deal sizes.</p>
+        <p><strong>Method.</strong> RSS feed for BPO new-client announcements. Direct outreach to BPO operations leaders within 30 days of the announcement: "Tech Mahindra uses Solidroad to lead with their quality story in client pitches. Worth showing you the angle before kickoff?"</p>
+        <p><strong>Success metric.</strong> 3 BPO Evaluating-stage accounts in 90 days. 1 closed-won BPO deal in 180 days (the long timeline reflects BPO sales cycles).</p>
+        <p><strong>Kill criterion.</strong> Under 1 Evaluating-stage in 90 days = re-think the angle.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Experiment 6 · SF office in-person break-in motion</summary>
+      <div class="detail-body">
+        <p><strong>Hypothesis.</strong> For top-20 SF target accounts where conventional channels (email + LinkedIn + phone) have stalled for 30+ days, an unannounced visit to reception with a printed one-page outreach + same-day email follow-up will produce a 30% response rate. Geographic unfair advantage.</p>
+        <p><strong>Method.</strong> Operator maintains a working list of SF target offices. Once per fortnight, picks the warmest unresponded account, walks over, drops a one-pager at reception addressed to the named CX leader. Same-day email: "I came by your office today. Here's why."</p>
+        <p><strong>Success metric.</strong> 30% reply rate from these visits. 3 booked meetings in 90 days from this motion specifically.</p>
+        <p><strong>Kill criterion.</strong> Sub-15% reply rate after 8 visits = the motion isn't working for our category and we kill it.</p>
+        <p><strong>Why this is on the list.</strong> SF is the only market where this motion is geographically feasible at scale. Every other GTM team competing for these accounts is sending the same templated email. The walk-over is the unfair advantage the seat unlocks.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Experiment 7 · Multi-language CX expansion signal</summary>
+      <div class="detail-body">
+        <p><strong>Hypothesis.</strong> Companies hiring support agents in new languages (Spanish, Portuguese, Tagalog, Japanese) within a 60-day window are entering or expanding international ops. Calibration drift across sites and languages is acute. Crescendo case study lands hard.</p>
+        <p><strong>Method.</strong> Job-posting signal filtered for support roles specifying non-English languages. Cross-reference with announcements about market entry. Outreach with the Crescendo Honduras + Philippines case as the lead.</p>
+        <p><strong>Success metric.</strong> 20% reply rate. 8 booked meetings in 90 days.</p>
+        <p><strong>Kill criterion.</strong> Sub-10% reply rate.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Experiment 8 · Competitor renewal-window displacement</summary>
+      <div class="detail-body">
+        <p><strong>Hypothesis.</strong> The strongest displacement deals are reached 60–90 days before a competitor (MaestroQA, Level AI, Convin) renewal. Public signals about competitor usage exist in G2 reviews, job postings, and Glassdoor mentions. The window is narrow but the deals are real.</p>
+        <p><strong>Method.</strong> Claygent monitoring of G2 / TrustRadius reviews mentioning competitor names + dates of usage. Cross-reference with job postings listing the competitor in the stack. Outreach 60 days into the inferred contract year (most B2B SaaS contracts are 12 months; 60 days before renewal = ~10 months in).</p>
+        <p><strong>Success metric.</strong> 3 Evaluating-stage accounts in 90 days where the competitor is named as the incumbent.</p>
+        <p><strong>Kill criterion.</strong> Under 1 in 90 days = the signal isn't precise enough; revisit the detection logic.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Experiment 9 · CX conference speaker outreach</summary>
+      <div class="detail-body">
+        <p><strong>Hypothesis.</strong> CX leaders speaking at Support Driven, Customer Contact Week, ICMI, and similar are publicly committing to a CX position. Cold outreach referencing their specific talk converts at 4x baseline.</p>
+        <p><strong>Method.</strong> Manually-maintained list of upcoming and recent CX conferences. Claygent scrape of speaker pages. Outreach within 14 days of their talk referencing a specific quote / point.</p>
+        <p><strong>Success metric.</strong> 30% reply rate. 12 booked meetings in 90 days.</p>
+        <p><strong>Kill criterion.</strong> Sub-15% reply rate.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Experiment 10 · The operator's own automation stack (DoorBlockade pattern, scaled)</summary>
+      <div class="detail-body">
+        <p><strong>Hypothesis.</strong> The pre-meeting research GPT and post-call transcript-scoring GPT I built at DoorBlockade scale up to Solidroad's selling motion. They save the operator and the closing AEs 2–3 hours per discovery / demo / close conversation across the pipeline.</p>
+        <p><strong>Method.</strong> Port the two GPTs into Solidroad's stack as Clay Functions:
+          <br>(a) <em>Pre-meeting brief generator</em>: input = account + contact + meeting type. Output = one-page brief with account context, contact public statements, likely objections, three discovery questions.
+          <br>(b) <em>Post-call transcript evaluator</em>: input = Gong / Fireflies transcript + meeting type. Output = scored against pre-defined criteria (decision-maker presence, objection patterns, technical fit, next steps clarity), with drafted follow-up email and recommended next action.</p>
+        <p><strong>Success metric.</strong> 70% adoption by closing AEs within 30 days of release. Average meeting prep time drops from 30 min to 10 min. Follow-up email send rate goes from "sometimes" to "always within 24 hours."</p>
+        <p><strong>Kill criterion.</strong> Sub-30% adoption = the tooling doesn't fit how the AEs actually work, kill or rebuild.</p>
+        <p><strong>Why this experiment matters even if it doesn't drive pipeline directly.</strong> It buys credibility with the closing AEs in week one. They feel the operator role making their lives easier, which means the next time pipeline gets handed off, it gets received well.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<section class="section white">
+  <div class="section-inner">
+    <span class="section-eyebrow">How i'd run these</span>
+    <h2>Three running at any time. <span class="accent">Sequential by leverage.</span></h2>
+    <p class="section-sub">Ten experiments isn't ten things running in parallel. It's a roadmap. At any moment, three are live. Each has a kill date. As one closes, the next one starts.</p>
+
+    <div class="card-grid-3">
+      <div class="card">
+        <h4>Month 1 – ship</h4>
+        <ul>
+          <li>Experiment 1 (LinkedIn engagement)</li>
+          <li>Experiment 3 (CX leader 60-day)</li>
+          <li>Experiment 10 (operator automation stack)</li>
+        </ul>
+        <p style="margin-top:8px;">These three are the safest bets on highest leverage. Ship by end of month one.</p>
+      </div>
+      <div class="card">
+        <h4>Month 2 – test</h4>
+        <ul>
+          <li>Experiment 2 (AI-agent-without-QA)</li>
+          <li>Experiment 6 (SF office break-in)</li>
+          <li>Experiment 9 (conference speaker)</li>
+        </ul>
+        <p style="margin-top:8px;">More speculative, lower-cost-to-test. Ship by end of month two.</p>
+      </div>
+      <div class="card">
+        <h4>Month 3 – scale or sunset</h4>
+        <ul>
+          <li>Experiment 4 (post-CX-failure)</li>
+          <li>Experiment 5 (BPO client-pitch)</li>
+          <li>Experiment 7 (multi-language)</li>
+          <li>Experiment 8 (competitor renewal)</li>
+        </ul>
+        <p style="margin-top:8px;">The slower-burn experiments. By month three, we know which of the first six worked and which didn't. Pick three more to test, in priority order.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section soft" style="padding: 40px 24px;">
+  <div class="footer-nav">
+    <a href="accounts.html">
+      <span class="label">← Previous</span>
+      <span class="title">Three accounts</span>
+    </a>
+    <a href="plan.html" class="next">
+      <span class="label">Next →</span>
+      <span class="title">90 days</span>
+    </a>
+  </div>
+</div>
+
+</body>
+</html>

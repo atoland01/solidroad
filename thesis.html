@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The thesis – Solidroad take-home</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <a href="index.html" class="topbar-brand">Adam Toland · Solidroad</a>
+  <nav class="nav-pills">
+    <a href="index.html">Home</a>
+    <a href="thesis.html" class="active">The thesis</a>
+    <a href="system.html">The system</a>
+    <a href="signals.html">Signals</a>
+    <a href="accounts.html">Accounts</a>
+    <a href="experiments.html">Experiments</a>
+    <a href="plan.html">60 days</a>
+    <a href="about.html">Why me</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Page 1 · The thesis</div>
+    <h1>The role isn't a hybrid. <span class="accent">It's the new unit.</span></h1>
+    <p class="hero-sub">How I'd interpret and run the role the JD describes: end-to-end pipeline ownership, with the system, the experiments, and the strategy work all on one seat. SDR-heavy on execution. RevOps-heavy on infrastructure. AE-adjacent on closing. Founder-mode on strategy.</p>
+  </div>
+</section>
+
+<section class="section white">
+  <div class="section-inner">
+    <span class="section-eyebrow">01 · the role, in my words</span>
+    <h2>The seat, said plainly.</h2>
+
+    <p>The JD describes a GTM Executive who owns pipeline generation end-to-end – building creative outbound experiments, partnering with Marketing and RevOps, and helping shape future GTM strategy with the Head of GTM and the CEO. One person, one stream, both the systems work and the phone work.</p>
+
+    <p>My interpretation: the operator owns three layers at once. The signal infrastructure (Clay Functions, Claude MCP, HubSpot routing, automated outreach). The outbound execution against a tight target list (the prospecting half, the in-person SF visits, the phone calls). And the strategy half – running experiments, killing what doesn't work, scaling what does, partnering with Marketing on ABM motions.</p>
+
+    <p>Title-wise, GTM Operator reads better than GTM Executive in market – it signals builder rather than rep – but the function is what matters. The scope is <strong>full ownership of the pipeline mechanism</strong>, with the discipline to stay close enough to the customer that the system keeps getting sharper.</p>
+  </div>
+</section>
+
+
+<section class="section white">
+  <div class="section-inner">
+    <span class="section-eyebrow">02 · why this org design works</span>
+    <h2>Andrew already said it <span class="accent">in public.</span></h2>
+    <p class="section-sub">Solidroad's Head of Engineering wrote the public-facing version of the role design on LinkedIn weeks ago. It is, almost word-for-word, what Paddy described privately for GTM.</p>
+
+    <div class="quote">
+      "We are giving the same scope and the same rituals to one person… Each DRI stream at Solidroad now has its own named owner, a 10-week rolling roadmap, a planning ritual, a retro, an async status, and a capacity model. Everything a team used to have, collapsed onto one human. It works because Claude and a stack of skills we have written collapse the production layer."
+      <span class="quote-attribution">Andrew Mooney, Head of Engineering, Solidroad – public LinkedIn post</span>
+    </div>
+
+    <h3>What this tells me</h3>
+    <ul>
+      <li><strong>The DRI model isn't aspirational, it's operational.</strong> Solidroad is already running it across engineering, design, and operations. The GTM application is the natural next step.</li>
+      <li><strong>The constraint isn't "can one person do this work" – it's "can the production layer be collapsed."</strong> Andrew solved that for engineering with Claude + custom skills. The GTM version solves the same problem with Clay Functions + Claude MCP.</li>
+      <li><strong>The discipline is shipping speed, not just output.</strong> Andrew's planning ritual – 10-week rolling roadmap, retro, async status, capacity model – is the cadence I'd run against the GTM stream too. Visible weekly progress, killed experiments logged, decisions made on the dates I said I'd make them.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner">
+    <span class="section-eyebrow">03 · the insight-to-action lens</span>
+    <h2>Solidroad's product story <span class="accent">applies to GTM, too.</span></h2>
+
+    <p>Mark's been writing publicly for months about what he calls the insight-to-action gap. CX teams have data – quality scores, dashboards, sampled conversation reviews – and almost no mechanism to convert that data into agent behavior change at scale. Solidroad's product is the loop-closer. It connects detected gaps to auto-generated coaching scenarios, which connect to graded role-plays, which connect to release-back-to-live-work decisions. The whole loop runs without a human deciding what to coach next.</p>
+
+    <p>GTM has the same insight-to-action gap. Sales teams have data – intent signals, scoring models, ICP fit scores, hiring trackers – and almost no mechanism to convert that data into pipeline at lower cost than throwing more SDRs at it. The infrastructure for closing that loop now exists: Clay Functions for the signal layer, Claude MCP for the rep interface, HubSpot for the system of record. The role is to be the loop-closer.</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <h4>Solidroad's CX loop</h4>
+        <ul>
+          <li><strong>Detect.</strong> Score every conversation against the rubric.</li>
+          <li><strong>Surface.</strong> Identify the gap by agent, team, topic.</li>
+          <li><strong>Simulate.</strong> Generate a practice scenario tied to the gap.</li>
+          <li><strong>Release.</strong> Agent returns to live work only after hitting the bar.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>The GTM operator's loop</h4>
+        <ul>
+          <li><strong>Detect.</strong> Score every signal across the target list.</li>
+          <li><strong>Surface.</strong> Identify the moment a human call would convert.</li>
+          <li><strong>Stage.</strong> Generate the outreach (Clay Functions + Claude MCP).</li>
+          <li><strong>Run.</strong> Operator picks up the phone, learns, feeds back into the system.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="highlight blue">
+      <strong>Why the alignment matters.</strong> The insight-to-action gap is the shape Solidroad solves in CX. Applied to GTM, it's the shape the operator role solves: most outbound functions have signals but not the discipline to convert them into pipeline at lower cost than throwing more SDRs at the problem. Closing that loop is the role.
+    </div>
+  </div>
+</section>
+
+<section class="section white">
+  <div class="section-inner">
+    <span class="section-eyebrow">04 · the operating principles</span>
+    <h2>Four principles <span class="accent">that run through everything else.</span></h2>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">The role is being invented, not filled.</div>
+          <div class="step-desc">The JD is a starting point. The actual scope is being workshopped. Every page in this document is an interpretation of what the seat should look like, executed concretely – not a fit-check against a static job description.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">Systems and the phone are the same job.</div>
+          <div class="step-desc">The "System" page shows the Clay Functions I'd build. The "Accounts" page shows the outreach I'd run against real targets. The operator owns both layers; the failure mode is treating them as separate roles.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">Solidroad's own thesis is the lens.</div>
+          <div class="step-desc">The insight-to-action framing isn't borrowed for the take-home. It's how I'd actually build the GTM engine, because it's the shape Solidroad builds product around.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">Shipping cadence beats grand plans.</div>
+          <div class="step-desc">Andrew's planning ritual (10-week roadmap, retro, async status) is the cadence I'd run too. Week-one ships matter more than month-three goals. Kill the experiments you said you'd kill on the date you said you'd kill them.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section soft" style="padding: 40px 24px;">
+  <div class="footer-nav">
+    <a href="index.html">
+      <span class="label">← Previous</span>
+      <span class="title">Home</span>
+    </a>
+    <a href="system.html" class="next">
+      <span class="label">Next →</span>
+      <span class="title">The system</span>
+    </a>
+  </div>
+</div>
+
+</body>
+</html>

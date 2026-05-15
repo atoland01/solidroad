@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Signals – Solidroad take-home</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <a href="index.html" class="topbar-brand">Adam Toland · Solidroad</a>
+  <nav class="nav-pills">
+    <a href="index.html">Home</a>
+    <a href="thesis.html">The thesis</a>
+    <a href="system.html">The system</a>
+    <a href="signals.html" class="active">Signals</a>
+    <a href="accounts.html">Accounts</a>
+    <a href="experiments.html">Experiments</a>
+    <a href="plan.html">60 days</a>
+    <a href="about.html">Why me</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Page 3 · Signals</div>
+    <h1>Ten signals worth a system. <span class="accent">Vanta-style, applied to CX.</span></h1>
+    <p class="hero-sub">Vanta built a monitoring system that detects companies needing SOC2 before they realise it. The same pattern, applied to Solidroad's ICP, catches CX teams the moment they need to evaluate quality infrastructure – and lets us reach them before they know what to call the category.</p>
+  </div>
+</section>
+
+<section class="section white">
+  <div class="section-inner">
+    <span class="section-eyebrow">01 · the framework</span>
+    <h2>Every signal runs through FETC.</h2>
+    <p class="section-sub">Clay's framework, applied per signal. Find (what to detect, where). Enrich (what to add once detected). Transform (how to score / qualify). Create (the outreach hook). Same shape for all ten.</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <h4>Signal categories</h4>
+        <ul>
+          <li><strong>Growth signals.</strong> Companies scaling, creating new CX needs.</li>
+          <li><strong>Change signals.</strong> Transitions that disrupt vendor relationships – new CX leaders, AI agent deployments.</li>
+          <li><strong>Distress signals.</strong> Public CX failures, viral complaints, regulatory pressure.</li>
+          <li><strong>Intent signals.</strong> LinkedIn engagement, conference attendance, content downloads.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>How signals stack</h4>
+        <p>A single signal alone is interesting. Multiple signals in 30 days is buying intent. Function 3 (Signal Scoring) weights ICP fit + signal strength + signal velocity. Three signals in 14 days on an ICP-fit account = call them today, not next week.</p>
+        <p class="muted" style="margin-top:8px; font-size:14px;">(See <a href="system.html">The system</a> for the scoring Function spec.)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner">
+    <span class="section-eyebrow">02 · the ten signals</span>
+    <h2>Each one a hypothesis. <span class="accent">Each one testable.</span></h2>
+
+    <details>
+      <summary>Signal 1 · AI agent deployed without a quality story (highest-value)</summary>
+      <div class="detail-body">
+        <p><strong>The hypothesis.</strong> Companies announcing AI chatbots / AI voicebots / AI email responders in customer support, without any mention of monitoring, evaluation, or quality infrastructure. They have a hidden quality problem that will compound; Solidroad solves it.</p>
+        <p><strong>Find.</strong> Daily Claygent scrape of (a) earnings call transcripts for B2C-heavy companies mentioning "AI agent" or "AI support" + (b) homepage chat-widget detection (Intercom Fin, Ada, Decagon, Forethought live) + (c) press releases / SEC filings. Cross-reference with the existence of a Trust & Safety or AI Ethics page (negative signal: probably already thinking about it).</p>
+        <p><strong>Enrich.</strong> Function 1 (Account ICP). Function 2 (Persona Mapper, targeting VP Customer Support, Head of AI, Director of CX Operations).</p>
+        <p><strong>Transform.</strong> Score boost for: AI agent live + no public quality framework + recent CX leadership hire. This is the gold-mine triad.</p>
+        <p><strong>Create.</strong> Outreach hook: "Saw [Company] just launched [AI agent name]. Curious how you're scoring the conversations it's handling – we work with [similar customer] on exactly this. Worth 15 minutes?"</p>
+        <p><strong>Why this is signal #1.</strong> It's the Vanta play, structurally identical. Vanta catches companies that need SOC2 before they know what to call it. This catches companies that need Solidroad before they've started evaluating.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Signal 2 · LinkedIn engagement on Solidroad employee posts</summary>
+      <div class="detail-body">
+        <p><strong>The hypothesis.</strong> Mark already said publicly that LinkedIn is Solidroad's top growth channel, and he's paying $5K/month bonuses to amplify reach. The reach is working. The conversion mechanism is manual. We can automate the conversion and turn engagement into pipeline within 24 hours.</p>
+        <p><strong>Find.</strong> Function 6 (LinkedIn Engagement Harvester). Daily scrape of likes / comments / reposts on posts from Mark, Patrick, Paddy, Andrew Mooney, Robbie Carroll, and any team member posting consistently.</p>
+        <p><strong>Enrich.</strong> Function 2 (Persona Mapper) on every engager. Pull their work email, title, recent posts of their own, company.</p>
+        <p><strong>Transform.</strong> Function 3 (Signal Scoring) per engager: ICP fit + engagement type (comment > repost > like) + recency (last 7 days = hot) + their own company's CX signals.</p>
+        <p><strong>Create.</strong> Daily Slack digest for the operator: top 5 engagers by score, with one-click "draft outreach" button that runs Function 4 (Outreach Drafter) referencing the specific post they engaged on.</p>
+        <p><strong>Why this is signal #2.</strong> Mark has explicitly told the market this is Solidroad's top growth channel. The reach is working. The conversion mechanism is currently manual. This Function industrialises it.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Signal 3 · New CX leader joining (Head of Support / VP CX / Director of Quality)</summary>
+      <div class="detail-body">
+        <p><strong>The hypothesis.</strong> New CX leaders within 60 days of starting are in their "make a mark" window. They have budget authority, mandate to change vendors, and incentive to ship visible wins fast. Highest single-signal conversion in B2B SaaS.</p>
+        <p><strong>Find.</strong> Default signal: job changes at target accounts. Filter for titles matching CX leadership patterns: "Head of Support", "VP Customer Experience", "Director of CX", "Head of Quality", "VP Customer Operations".</p>
+        <p><strong>Enrich.</strong> Function 2 on the new hire. Pull their previous-company context: did they use Solidroad's competitor? Did they speak publicly about quality, training, or AI agents at their last role?</p>
+        <p><strong>Transform.</strong> Score boost: ICP-fit company + new hire in CX leadership + their previous role used a Solidroad competitor or wrote publicly about CX quality.</p>
+        <p><strong>Create.</strong> Outreach hook tailored by previous role: "Saw you just joined [new company] as [title] – congrats. At [old company] you wrote about [specific thing]. We're working with [similar company] on exactly that shape of problem. Worth a quick intro?"</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Signal 4 · Public CX failure (viral complaint, regulatory action, news mention)</summary>
+      <div class="detail-body">
+        <p><strong>The hypothesis.</strong> Public CX failures create internal urgency at the affected company. Within 7 days of a viral support failure or a regulatory complaint, the CX leader is being asked by their CEO / board what's being done. Solidroad's "100% review" pitch lands hardest at this exact moment.</p>
+        <p><strong>Find.</strong> RSS feed + Claygent monitoring of: (a) Reddit r/[company] threads tagged with support complaints, (b) Twitter mentions of [company] + support keywords with high engagement, (c) news mentions of [company] + "customer service" / "support failure" / "data breach", (d) regulatory complaint trackers for B2C-heavy verticals.</p>
+        <p><strong>Enrich.</strong> Function 2 (Persona Mapper) immediately, targeting the senior-most CX leader at the company.</p>
+        <p><strong>Transform.</strong> Auto-route as URGENT if the failure is within 7 days. These are 24-hour-response signals, not weekly-digest signals.</p>
+        <p><strong>Create.</strong> Outreach is delicate: never reference the failure directly (corporate sensitivity); reference the category. "I saw the conversation about [topic] this week. Most CX teams I work with are getting asked by their CEOs how to prevent the next one. Solidroad does X for [similar company]. Worth a 15-min conversation?"</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Signal 5 · CX hiring wave (10+ support roles in 30 days)</summary>
+      <div class="detail-body">
+        <p><strong>The hypothesis.</strong> Companies hiring 10+ support agents in a 30-day window are scaling, which means onboarding is about to break and time-to-quality is a board-visible problem. Faire's 33% onboarding reduction is the proof case to lead with.</p>
+        <p><strong>Find.</strong> Default signal: job postings. Filter for support / CX / customer success roles. Aggregate by company over rolling 30-day windows.</p>
+        <p><strong>Enrich.</strong> Function 1 (Account ICP). Particularly: which support stack are they on? Intercom and Zendesk are warm – Solidroad integrates deeply with both.</p>
+        <p><strong>Transform.</strong> Score by hiring velocity + ICP fit + stack compatibility. Hiring 10 agents on Intercom in 30 days = call this week.</p>
+        <p><strong>Create.</strong> "Saw you're hiring [N] support roles in [city/region]. Faire ran into the same growth shape – they cut onboarding time 33% by [Solidroad capability]. Curious if you're feeling the same pressure?"</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Signal 6 · BPO client win or RFP announcement</summary>
+      <div class="detail-body">
+        <p><strong>The hypothesis.</strong> BPOs (Tech Mahindra, Crescendo-tier) win new client engagements all the time. When they do, they need to demonstrate quality infrastructure to the new client. Solidroad's pitch lands as a "use this in your client pitch" angle, not a "buy this for your ops" angle. BPOs are also unlocks: one BPO win can mean 10+ underlying client logos.</p>
+        <p><strong>Find.</strong> RSS feed monitoring of BPO press releases + LinkedIn announcements about new client wins. Filter for B2C-heavy verticals where Solidroad has case studies (e-commerce, fintech, travel).</p>
+        <p><strong>Enrich.</strong> Function 1 + Function 2 targeting BPO operations leaders (COO, VP Operations, Account Director on the specific new account).</p>
+        <p><strong>Transform.</strong> Score boost: BPO + new client win in last 60 days + ICP-aligned underlying client.</p>
+        <p><strong>Create.</strong> "Saw [BPO] just won the [new client] account. The Tech Mahindra team uses Solidroad to lead with their quality story in client pitches – worth showing you the angle before kickoff?"</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Signal 7 · Multi-language / international CX expansion</summary>
+      <div class="detail-body">
+        <p><strong>The hypothesis.</strong> International expansion = new languages = new agent cohorts = calibration drift across regions. Crescendo's 50% manual-assessment reduction across Honduras + Philippines is the proof case. The pain is acute and well-named.</p>
+        <p><strong>Find.</strong> Combined signal: (a) job postings for support agents specifying new languages (Spanish, Portuguese, Tagalog, etc.) + (b) press releases about new market entry + (c) careers-page localisation changes.</p>
+        <p><strong>Enrich.</strong> Function 1 + Function 2 targeting Director of CX Operations or Head of International Operations.</p>
+        <p><strong>Transform.</strong> Score boost: 3+ international support roles in 30 days OR explicit market-entry announcement.</p>
+        <p><strong>Create.</strong> "Saw you're expanding into [region]. Crescendo runs Solidroad across their Honduras and Philippines ops to keep quality consistent across sites – cut manual assessment 50%. Same shape of problem worth a conversation?"</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Signal 8 · Competitor renewal window (MaestroQA, Level AI, Convin)</summary>
+      <div class="detail-body">
+        <p><strong>The hypothesis.</strong> The strongest displacement deals come 60–90 days before a competitor contract renewal, when the buyer is open to alternatives. Most competitor signals are public-ish: G2 reviews dated by date of purchase, LinkedIn posts mentioning current tools, support job descriptions listing the QA stack.</p>
+        <p><strong>Find.</strong> Claygent monitoring of (a) public G2 / TrustRadius reviews mentioning competitor names + dates + (b) job postings listing competitor tools in the stack + (c) Glassdoor reviews mentioning frustration with current tools.</p>
+        <p><strong>Enrich.</strong> Function 1 + Function 2. Particularly the CX ops leader's tenure – longer tenure = stronger personal authority to switch vendors.</p>
+        <p><strong>Transform.</strong> Score boost: competitor in stack + renewal window approaching + recent CX leadership change (the new leader didn't pick the old tool and has cover to switch).</p>
+        <p><strong>Create.</strong> Never trash the competitor directly. "I noticed you're on [competitor]. We're built differently around the simulation-to-coaching loop, which is where [similar customer] told us they hit a ceiling. Worth showing you the difference before your next renewal cycle?"</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Signal 9 · Series B+ funding in CX-heavy verticals</summary>
+      <div class="detail-body">
+        <p><strong>The hypothesis.</strong> Newly funded companies in e-commerce, fintech, marketplaces, and consumer apps have budget, growth pressure, and CX is one of the first functions that breaks at scale. Series B is the sweet spot – Series A is too early (no CX team yet), Series C is too late (already chose a vendor).</p>
+        <p><strong>Find.</strong> Default signal: funding announcements. Filter for Series B + CX-heavy verticals.</p>
+        <p><strong>Enrich.</strong> Function 1 (Account ICP). Function 2 targeting VP Customer Support or first CX hire if no leader yet (also a wedge – we can help them shape the function from day one).</p>
+        <p><strong>Transform.</strong> Score boost: Series B + B2C / marketplace / fintech + already deploying AI agents.</p>
+        <p><strong>Create.</strong> "Congrats on the Series B. Most companies at your stage feel CX scaling break around the 50-agent mark. Faire ran into that and we [outcome]. Curious if you're seeing the same."</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Signal 10 · CX conference speaker / panelist</summary>
+      <div class="detail-body">
+        <p><strong>The hypothesis.</strong> CX leaders speaking at Support Driven, Customer Contact Week, ICMI, etc. are publicly committing to a position on a CX topic. That's the perfect cold-outreach hook – reference their specific talk, ask the question their talk implicitly raises, position Solidroad as the answer.</p>
+        <p><strong>Find.</strong> RSS feed + manual maintained list of CX conference speaker pages. Claygent scrape of event sites monthly.</p>
+        <p><strong>Enrich.</strong> Function 2 + a custom Claygent pull of the talk abstract / video / LinkedIn post about the talk.</p>
+        <p><strong>Transform.</strong> Score boost: ICP fit + recent public talk + talk topic aligns with Solidroad capability (AI agents, QA, training, multi-language).</p>
+        <p><strong>Create.</strong> "Saw your talk at [conference] on [topic]. You said [specific quote]. That's exactly the gap we close at Solidroad – worth comparing notes for 20 minutes?"</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<section class="section white">
+  <div class="section-inner">
+    <span class="section-eyebrow">03 · what i'd kill from the list, deliberately</span>
+    <h2>The signals I'm <span class="accent">not</span> chasing.</h2>
+
+    <ul>
+      <li><strong>Generic intent data from third-party providers (Bombora, G2 Buyer Intent).</strong> Late-stage by definition – by the time someone shows up on a buyer-intent list, they're already evaluating MaestroQA. We want earlier.</li>
+      <li><strong>Tech stack signals for non-CX tools.</strong> A company adopting a new finance tool tells us nothing about their CX posture. Focus is a feature, not a bug.</li>
+      <li><strong>Volume-based job-posting signals not specific to CX.</strong> Engineering hiring waves are not Solidroad signals. Resist the temptation to over-broaden.</li>
+      <li><strong>Press mentions of "AI" without context.</strong> Half of corporate America is now mentioning AI in press releases. Without specificity about AI in customer support, it's noise.</li>
+    </ul>
+
+    <p class="muted" style="margin-top:18px;">The discipline is to monitor fewer signals more deeply, score them rigorously, and act on the ones that score 80+. A team running 30 signals badly will be outperformed by a team running 10 signals well.</p>
+  </div>
+</section>
+
+<div class="section soft" style="padding: 40px 24px;">
+  <div class="footer-nav">
+    <a href="system.html">
+      <span class="label">← Previous</span>
+      <span class="title">The system</span>
+    </a>
+    <a href="accounts.html" class="next">
+      <span class="label">Next →</span>
+      <span class="title">Three accounts</span>
+    </a>
+  </div>
+</div>
+
+</body>
+</html>

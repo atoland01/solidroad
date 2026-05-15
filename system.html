@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The system – Solidroad take-home</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <a href="index.html" class="topbar-brand">Adam Toland · Solidroad</a>
+  <nav class="nav-pills">
+    <a href="index.html">Home</a>
+    <a href="thesis.html">The thesis</a>
+    <a href="system.html" class="active">The system</a>
+    <a href="signals.html">Signals</a>
+    <a href="accounts.html">Accounts</a>
+    <a href="experiments.html">Experiments</a>
+    <a href="plan.html">60 days</a>
+    <a href="about.html">Why me</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Page 2 · The system</div>
+    <h1>Clay as the factory. <span class="accent">Claude as the operator interface. HubSpot as truth.</span></h1>
+    <p class="hero-sub">The stack I'd build in month one. Six named Clay Functions, the three-table ABM architecture adapted for Solidroad's two ICPs, and the Claude MCP layer that lets the operator run the whole thing from a chat window.</p>
+  </div>
+</section>
+
+<section class="section white">
+  <div class="section-inner">
+    <span class="section-eyebrow">01 · the stack, at a glance</span>
+    <h2>Four layers. <span class="accent">One operator.</span></h2>
+    <p class="section-sub">Each layer has a job. Each layer is replaceable. None of it is exotic. The point isn't the tools – it's the discipline of running them together as a single system.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">Signal layer – Clay</div>
+          <div class="step-desc">All inbound and outbound signals land in Clay tables. Default signals (job changes, funding, news, hiring), custom signals (AI-agent deployment without QA, post-CX-failure, LinkedIn-engagement on Solidroad posts), and first-party signals (HubSpot stage changes, intercom touches).</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">Enrichment + scoring layer – Clay Functions</div>
+          <div class="step-desc">Six named, reusable Functions defined once, callable from any table or Claude session. Account enrichment, contact enrichment, ICP fit scoring, signal scoring, copywriting, job-change verification. RevOps maintains; the operator calls.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">Operator interface – Claude (with Clay MCP)</div>
+          <div class="step-desc">The operator works in Claude desktop. "Find sales leaders at doordash.com." "Enrich the top 5 and draft outreach using their recent thought leadership." Functions get invoked behind the scenes. Outputs flow back to HubSpot.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">System of record – HubSpot</div>
+          <div class="step-desc">Every enriched contact, every scored account, every scheduled sequence lives in HubSpot. Closing AEs work from HubSpot. The operator works from Claude. Both see the same truth.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="highlight green">
+      <strong>The shape of it.</strong> RevOps build the playbooks (Clay Functions). The operator runs the playbooks (via Claude). The AEs close the meetings (from HubSpot). Three roles, one system, no duplicated work. This is the architecture Clay's own RevOps team uses internally – I'd adapt it for Solidroad's two ICPs.
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner">
+    <span class="section-eyebrow">02 · clay functions to ship in month one</span>
+    <h2>Six Functions. <span class="accent">Named, scoped, callable.</span></h2>
+    <p class="section-sub">Each Function does one job, takes a defined input, returns a defined output, and gets called from any table or any Claude session. This is the "stack of skills" Andrew described, applied to GTM.</p>
+
+    <details>
+      <summary>Function 1 · Account Enrichment: Solidroad ICP</summary>
+      <div class="detail-body">
+        <p><strong>Input:</strong> company domain</p>
+        <p><strong>What it does:</strong> waterfalls firmographic data (revenue, employee count, web traffic, funding stage, tech stack) across HG Insights, People Data Labs, Pubrio, Clearbit. Adds Solidroad-specific custom enrichments via Claygent: CX team size (LinkedIn job-titles scrape), support channels in use (homepage chat-widget detect + careers-page mentions), AI agent deployed (analysing public help pages for AI-chat language), competitor signal (G2 reviews for MaestroQA / Level AI / Convin).</p>
+        <p><strong>Output:</strong> one column written back to the calling table: a clean firmographic + Solidroad-fit-signal payload.</p>
+        <p><strong>Why it matters:</strong> standardises what "Solidroad ICP fit" means across every table the team builds. No more SDR-by-SDR variation in qualification.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Function 2 · Contact Enrichment: CX Persona Mapper</summary>
+      <div class="detail-body">
+        <p><strong>Input:</strong> company domain + persona target (e.g. "Head of Support" / "Director of Quality" / "VP CX")</p>
+        <p><strong>What it does:</strong> finds people matching the persona at the company. Waterfalls work email + LinkedIn URL across 10+ providers. Enriches with work history, tenure-in-current-role, recent posts and thought leadership, recently-mentioned-pain-points (via Claygent on LinkedIn activity + podcast appearances).</p>
+        <p><strong>Output:</strong> structured contact records with the personalisation hooks needed for outreach: a specific quote / event / signal per contact.</p>
+        <p><strong>Why it matters:</strong> the difference between "I emailed the VP of CX" and "I emailed the VP of CX who just gave a podcast interview on AI-agent quality and started 3 months ago."</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Function 3 · Signal Scoring: Hot Account Detector</summary>
+      <div class="detail-body">
+        <p><strong>Input:</strong> account (post-enrichment) + recent signal feed</p>
+        <p><strong>What it does:</strong> assigns a 1–100 score per account combining ICP fit (40%) + signal strength (40%) + signal velocity (20%, using concentrated-recent vs spread-over-months). Uses Claude inside Clay with explicit Solidroad context: "score this account from 1–100 for Solidroad fit. Best fits are high-volume CX teams (in-house mid-market SaaS or BPOs) deploying or about to deploy AI agents, with hiring signals on quality or training roles."</p>
+        <p><strong>Output:</strong> score + 1–2 sentence rationale per account.</p>
+        <p><strong>Why it matters:</strong> the operator stops opening every signal alert. They open the top 10% by score and work down. This is the difference between a system that produces noise and a system that produces calls.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Function 4 · Outreach Drafter: Insight / Value / Signal</summary>
+      <div class="detail-body">
+        <p><strong>Input:</strong> contact + account + scoring rationale</p>
+        <p><strong>What it does:</strong> generates three message variants per contact, following Clay's modular AI Snippets pattern.</p>
+        <ul>
+          <li><strong>Insight-led:</strong> three-to-four sentences. Opens with a specific personalised insight (their podcast, their hire, their stack), ties to a Solidroad capability, ends with a soft CTA.</li>
+          <li><strong>Value-nugget:</strong> leads with a concrete tactical insight delivered up front. Useful for second-touch.</li>
+          <li><strong>High-signal:</strong> two-to-three sentences. Leads with the highest-value qualifying signal (job change, public AI agent launch, competitor mention, recent CX failure). Fallback returns "NO HIGH SIGNAL – USE STANDARD" if none found.</li>
+        </ul>
+        <p><strong>Output:</strong> all three variants as a structured JSON object written back to the calling table. The operator picks the variant per contact, or the system auto-routes by signal strength.</p>
+        <p><strong>Why it matters:</strong> the cookie-cutter "Notice you do X, do you have 15 min?" opening is the failure mode of generic outbound. This Function structurally enforces a problem-centric pattern instead – open with the problem the prospect has, name the solution, ask for the conversation that's worth their time.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Function 5 · Job-Change Detector (CX Champions)</summary>
+      <div class="detail-body">
+        <p><strong>Input:</strong> a contact list (CX leaders, past Solidroad evaluators, customer champions)</p>
+        <p><strong>What it does:</strong> daily check against LinkedIn for job-change signals. When a champion moves – say a Head of Support at a past prospect company joins a new company – fires a Slack alert and writes the new role + new company into the table. Backup waterfalls (LinkedIn → work email → company domain) ensure high coverage even when LinkedIn data is stale.</p>
+        <p><strong>Output:</strong> Slack message: "[Name] just moved from [old company] to [new company] as [new title]. Old company was a [Solidroad stage]. Reach out within 24h?"</p>
+        <p><strong>Why it matters:</strong> CX leaders moving = budget moving with them. This is the highest-converting signal in B2B SaaS. Most teams catch it weeks late.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Function 6 · LinkedIn Engagement Harvester</summary>
+      <div class="detail-body">
+        <p><strong>Input:</strong> Solidroad employee LinkedIn URLs (Mark, Patrick, Paddy, Andrew, Robbie Carroll, and any team member posting consistently)</p>
+        <p><strong>What it does:</strong> daily scrape of post engagements – likes, comments, reposts. Enriches each engager through Function 2 (CX Persona Mapper). Scores through Function 3 (Hot Account Detector). High-scoring engagers route to the operator's Slack with the post they engaged on, the engagement type, and their account context.</p>
+        <p><strong>Output:</strong> daily Slack digest. "12 new engagers today. Top 3 by score: [name, title, company, engaged on Mark's AI-agent post, score 87]."</p>
+        <p><strong>Why it matters:</strong> Mark already said publicly that LinkedIn is Solidroad's top growth channel and that he's paying $5K/month bonuses to amplify reach. The reach is working; the conversion mechanism is manual. This Function automates the conversion. <strong>It's the single highest-leverage Function in the stack.</strong></p>
+      </div>
+    </details>
+
+    <div class="highlight blue">
+      <strong>What this list isn't.</strong> It's not a comprehensive Clay roadmap. It's the minimum viable stack to ship in month one and start running against accounts in month two. By month six, the same library would likely have 15–20 Functions: BPO-specific account enrichment, multi-language CX detection, conference attendee enrichment, customer-expansion signal monitoring, churn-risk early-warning for existing accounts, and more.
+    </div>
+  </div>
+</section>
+
+<section class="section white">
+  <div class="section-inner">
+    <span class="section-eyebrow">03 · the three-table abm architecture</span>
+    <h2>Lifted from Clay's own playbook. <span class="accent">Adapted for Solidroad's two ICPs.</span></h2>
+    <p class="section-sub">Clay's RevOps team runs ABM as three connected tables: Named Accounts, Signal Tracking, and Stage Updates. This is the same pattern, configured for Solidroad's in-house-CX motion and BPO motion running in parallel.</p>
+
+    <div class="card-grid-3">
+      <div class="card">
+        <h3>Table 1 · Named Accounts</h3>
+        <p>The source-of-truth target list. Imported from HubSpot on a daily schedule. Columns: account name, domain, ICP track (in-house CX / BPO), current stage (Aware / Interested / Evaluating), assigned closing AE, last-touched date, account grade.</p>
+        <h4>What changes per ICP</h4>
+        <ul>
+          <li><strong>In-house CX track:</strong> 100–200 named accounts at any time. Fast-scaling SaaS, marketplaces, fintechs, consumer apps.</li>
+          <li><strong>BPO track:</strong> 30–50 named accounts. Tech Mahindra-tier global BPOs, regional players, AI-native operators like Crescendo.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Table 2 · Signal Tracking</h3>
+        <p>Live signal feed across the named accounts. Every signal fired into the system writes a row here, regardless of whether it's an action. Default signals (job changes, funding, news) plus custom signals (AI agent deployment, hiring waves, public CX failure, LinkedIn engagement).</p>
+        <h4>What changes per ICP</h4>
+        <ul>
+          <li><strong>In-house CX:</strong> emphasis on AI-agent-without-quality-story signals and CX-leadership-hires.</li>
+          <li><strong>BPO:</strong> emphasis on new client wins, public quality stories, multi-site expansion announcements.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Table 3 · Stage Updates</h3>
+        <p>The lookup table that moves accounts through stages based on signal patterns. If an in-house CX account has 3+ signals in 30 days and a high score, auto-bump from Aware to Interested. Writes back to HubSpot. Triggers the operator's next action.</p>
+        <h4>What changes per ICP</h4>
+        <ul>
+          <li><strong>In-house CX:</strong> faster stage progression based on signal velocity.</li>
+          <li><strong>BPO:</strong> slower stage progression but higher per-account effort; one BPO win unlocks dozens of underlying logos.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner">
+    <span class="section-eyebrow">04 · where claude mcp fits</span>
+    <h2>The interface, <span class="accent">not the engine.</span></h2>
+    <p class="section-sub">Claude MCP is how the operator talks to the system. The work happens in Clay; the operator works in Claude. Same shape Clay's own MCP course teaches.</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <h3>What the operator types in Claude</h3>
+        <ul>
+          <li>"Find sales leaders at doordash.com."</li>
+          <li>"Enrich the top 5 and run our Solidroad-ICP scoring."</li>
+          <li>"Show me everyone who engaged with Mark's post yesterday, scored against our ICP."</li>
+          <li>"Run the outreach-drafter Function on these 3 contacts, return all three variants."</li>
+          <li>"Update Sarah Chen's stage in HubSpot to Interested."</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>What happens behind the scenes</h3>
+        <ul>
+          <li>Claude routes the request through Clay MCP.</li>
+          <li>Clay invokes the relevant Function (account enrichment, scoring, outreach drafter).</li>
+          <li>Function runs in a Clay table running in the background.</li>
+          <li>Result returns to Claude's chat window for the operator to review.</li>
+          <li>Where appropriate, results write back to HubSpot automatically.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="highlight green">
+      <strong>Live beats described.</strong> The operator interface isn't a diagram – it's running. Pull up Claude, ask a real question about a real target account, watch the enriched result come back in seconds. The whole system collapses into a one-line prompt for the person actually using it.
+    </div>
+  </div>
+</section>
+
+<section class="section white">
+  <div class="section-inner">
+    <span class="section-eyebrow">05 · the data flow, end-to-end</span>
+    <h2>From signal to phone call, <span class="accent">in ten steps.</span></h2>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">A signal fires</div>
+          <div class="step-desc">DoorDash hires a new Head of CX. Job-change signal triggers in Clay (Default Signal).</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">Auto-enrichment runs</div>
+          <div class="step-desc">Function 1 (Account Enrichment) pulls firmographic + Solidroad-fit data. Function 2 (Persona Mapper) finds the new hire's profile, tenure, public posts.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">Scoring runs</div>
+          <div class="step-desc">Function 3 (Signal Scoring) returns 87/100 for the account. ICP fit high; signal strength high (new CX leader = budget unlock); signal velocity high (within 30 days).</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">Operator gets the alert</div>
+          <div class="step-desc">Slack notification: "DoorDash – new Head of CX – score 87. Open in Claude."</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <div class="step-title">Operator works the moment in Claude</div>
+          <div class="step-desc">"Pull recent public statements from this person and draft three outreach variants." Function 4 returns insight-led, value-nugget, high-signal.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">6</div>
+        <div class="step-body">
+          <div class="step-title">Operator reviews + edits</div>
+          <div class="step-desc">Picks the high-signal variant (job change is the strongest single signal). Edits two sentences for tone. Sends from Gmail / sequencer.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">7</div>
+        <div class="step-body">
+          <div class="step-title">Multi-channel follow-up auto-scheduled</div>
+          <div class="step-desc">LinkedIn connection request three days later. Phone call attempt one week later. Each step logged to HubSpot.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">8</div>
+        <div class="step-body">
+          <div class="step-title">Reply lands</div>
+          <div class="step-desc">"Sure, happy to chat next week." Account stage auto-bumps to Interested in HubSpot.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">9</div>
+        <div class="step-body">
+          <div class="step-title">Discovery booked + briefed</div>
+          <div class="step-desc">Operator runs pre-meeting research brief Function (the same GPT pattern I ran at DoorBlockade, now properly integrated). Brief: account context, person's posts, likely objections, three discovery questions.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">10</div>
+        <div class="step-body">
+          <div class="step-title">Discovery happens, AE takes over</div>
+          <div class="step-desc">Operator runs the discovery, qualifies into Evaluating stage, hands to the closing AE with full context. Post-call transcript review (another Function) auto-drafts the follow-up note. AE closes.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="highlight yellow">
+      <strong>How long does this take in real life?</strong> Steps 1–4 happen automatically, in minutes. Step 5 takes the operator about 4 minutes in Claude. Step 6 (review + edit + send) takes 3 minutes. Step 7 is automated. Steps 8–10 are the human work. The whole cycle from signal-fired to outreach-sent is under 30 minutes of operator time. That is the unit economics improvement made concrete.
+    </div>
+  </div>
+</section>
+
+<div class="section soft" style="padding: 40px 24px;">
+  <div class="footer-nav">
+    <a href="thesis.html">
+      <span class="label">← Previous</span>
+      <span class="title">The thesis</span>
+    </a>
+    <a href="signals.html" class="next">
+      <span class="label">Next →</span>
+      <span class="title">Signals</span>
+    </a>
+  </div>
+</div>
+
+</body>
+</html>
